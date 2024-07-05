@@ -17,8 +17,9 @@ class DescriptorDomainList:
 
 
 class SiteChecker:
+    checker_list = DescriptorDomainList()
+
     def __init__(self, checker_list: list | None, timeout: int = 10):
-        self.checker_list = DescriptorDomainList()
         self.checker_list = checker_list if checker_list else []
         self.timeout = timeout
 
@@ -69,6 +70,7 @@ async def main():
     # Бесконечный цикл, чтобы программа продолжала работать
     while True:
         await asyncio.sleep(10)
+
 
 if __name__ == '__main__':
     asyncio.run(main())
